@@ -4,19 +4,16 @@
       %h3.side-header__box__username
         = current_user.name
       %ul.side-header__box__menu
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('far', 'edit', class: "side-header__box__menu__new-group")
           %span<>
-        = link_to edit_user_path(current_user) do
+        = link_to edit_user_path(current_user.id) do
           = icon('fas', 'cog', class: "side-header__box__menu__edit-user")
   .groups
-    .group
-      %p.group__group-name
-        吾輩は猫である
-      %p.group__latest-message
-        名前はまだない
-    .group
-      %p.group__group-name
-        どこで生まれたか
-      %p.group__latest-message
-        とんと見当がつかぬ
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__group-name
+            = group.name
+          .group__latest-message
+            名前はまだ無い
