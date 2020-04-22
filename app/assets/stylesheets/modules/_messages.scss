@@ -2,9 +2,6 @@
   box-sizing: border-box;
 }
 
-$white: #ffffff;
-$btn-color: #38aef0;
-
 .wrapper {
   display: flex;
 }
@@ -90,9 +87,9 @@ $btn-color: #38aef0;
       line-height: 40px;
       display: inline-block;
       text-decoration: none;
-      color: $btn-color;
+      color: $light_blue;
       font-size: 16px;
-      border: 1px solid $btn-color;
+      border: 1px solid $light_blue;
       text-align: center;
     }
   } 
@@ -157,7 +154,7 @@ $btn-color: #38aef0;
         margin-left: 15px;
         text-align: center;
         display: inline-block;
-        background-color: $btn-color;
+        background-color: $light_blue;
         color: $white;
         cursor: pointer;
       }
