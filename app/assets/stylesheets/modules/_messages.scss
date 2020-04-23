@@ -6,6 +6,8 @@
   display: flex;
 }
 
+// サイドバー
+
 .chat-side {
   width: 300px;
   .side-header {
@@ -53,10 +55,15 @@
       &__latest-message {
         font-size: 11px;
       }
-
+      a {
+        text-decoration: none;
+        color: $white;
+      }
     }
   }
 }
+
+// メインチャット
 
 .chat-main {
   width: calc(100vw - 300px);
