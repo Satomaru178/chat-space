@@ -2,35 +2,21 @@
   .main-header
     .main-header__left-box
       %h2.main-header__left-box__current-group
-        吾輩は猫である
+        = @group.name
       %ul.main-header__left-box__member-list
         Member :&nbsp;
         %li.main-header__left_box__member-list__member
-          souseki
-    = link_to "#", class: "main-header__edit-btn" do
+          - @group.users.each do |user|
+            = "#{user.name},"
+    = link_to edit_group_path(@group.id), class: "main-header__edit-btn" do
       Edit
   .messages
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker
-          satoshi
-        %p.message__upper-info__date
-          2020/04/11(Sat) 21:15:36
-      %p.message__text
-        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-    .message
-      .message__upper-info
-        %p.message__upper-info__talker
-          natsume
-        %p.message__upper-info__date
-          2020/04/11(Sat) 21:20:46
-      %p.message__text
-        吾輩はここで始めて人間というものを見た。
+    = render @messages
   .form
-    %form.new-message
-      .input-box
-        %input.input-box__text{type: "text", placeholder: "type a message", name: "message[content]"}
-        %label.input-box__image
-          = icon('far', 'image')
-          %input.input-box__image__file{type: "file", name: "message[image]"}
-      %input.submit-btn{type: "submit", name: "commit", value: "Send"}
+    = form_for [@group, @message] do |f|
+      .form-box
+        = f.text_field :content, class: 'form-box__message', placeholder: 'type a message'
+        = f.label :image, class: 'form-box__image' do
+          = icon('far', 'image', class: 'icon')
+          = f.file_field :image, class: 'form-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
