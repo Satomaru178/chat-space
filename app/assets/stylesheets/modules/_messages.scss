@@ -132,18 +132,18 @@
     height: 90px;
     background-color: #d2d2d2;
     padding: 20px 40px;
-    .new-message {
+    & form {
       display: flex;
-      .input-box {
+      .form-box {
         position: relative;
         width: 100%;
-        &__text {
+        &__message {
           height: 50px;
           line-height: 50px;
           border-style: none;
           width: 100%;
           padding: 0 40px 0 10px;
-        }
+        }  
         &__image {
           position: absolute;
           top: 10px;
@@ -152,9 +152,10 @@
           cursor: pointer;
           &__file {
             display: none;
-          }
+          }  
         }
       }
+      
       .submit-btn {
         height: 50px;
         width: 100px;
